@@ -114,11 +114,11 @@ def train(args) -> None:
         }
 
         tgt_dict = {
-            "token": tgt_tokens,
-            "token_mask": x_mask,
-            "onset_roll": onset_roll
+            "token": tgt_tokens,  # (b*s, l)
+            "token_mask": x_mask,  # (b*s, l)
+            "onset_roll": onset_roll  # (b*s, t, p)
         }
-        
+
         # ------ 2. Training ------
         # 2.1 Forward
         model.train()
